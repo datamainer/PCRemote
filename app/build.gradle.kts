@@ -7,7 +7,7 @@ plugins {
 android {
     namespace = "com.example.pcremote"
     compileSdk {
-        version = release(36)
+        version = release(37)
     }
 
     defaultConfig {
@@ -42,6 +42,7 @@ android {
 }
 
 dependencies {
+    implementation(libs.androidx.compose.foundation.layout)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -62,5 +63,12 @@ dependencies {
     // Icons
     implementation("androidx.compose.material3:material3")
     implementation("androidx.compose.material:material-icons-extended")
-//
+
+    // JustForPixel ExpressiveLab Material 3 Expressive Component Library
+    implementation("com.github.mohdamaan1:JustForPixel-ExpressiveLab:v1.0.0")
+
+    // Compose Material 3 Expressive BOM
+    implementation(platform("androidx.compose:compose-bom:2026.02.01"))
+    implementation("androidx.compose.material3:material3")
+    implementation("com.github.racra:smooth-corner-rect-android-compose:v1.0.0")
 }

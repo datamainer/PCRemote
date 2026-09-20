@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ModalBottomSheet
@@ -40,6 +41,7 @@ fun PartialBottomSheet(openApp: (String) -> Unit = {}) {
     )
 
     Button(
+        modifier = Modifier.padding(20.dp),
         onClick = { showBottomSheet = true }
     ) {
         Text("Applications")
