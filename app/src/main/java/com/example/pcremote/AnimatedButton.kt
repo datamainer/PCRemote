@@ -1,10 +1,12 @@
 package com.example.pcremote
 
+import android.R.attr.shape
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.offset
 import androidx.compose.runtime.Composable
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -18,18 +20,25 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.runtime.*
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.unit.dp
 
 
 @Composable
 fun PressedButton (
     modifier: Modifier = Modifier,
-    backColor: Color = MaterialTheme.colorScheme.onPrimary,
-    frontColor: Color = MaterialTheme.colorScheme.primary,
+    backColor: Color = MaterialTheme.colorScheme.primary,
+    frontColor: Color = MaterialTheme.colorScheme.onPrimaryContainer,
     onClick: () -> Unit,
     content: @Composable () -> Unit,
 
     ) {
 
+    val shape = RoundedCornerShape(16.dp)
     var pressed by remember { mutableStateOf(false) }
     val offsetY by animateDpAsState(
         targetValue = if (pressed) 5.dp else 0.dp,
@@ -51,6 +60,12 @@ fun PressedButton (
                     color = backColor,
                     RoundedCornerShape(30.dp)
                 )
+                .border(
+                    width = 2.dp,
+                    color = Color.Black,
+                    shape = RoundedCornerShape(30.dp),
+                )
+
         )
         // верхний слой
         Box(
@@ -60,6 +75,11 @@ fun PressedButton (
                 .background(
                     color = frontColor,
                     RoundedCornerShape(30.dp)
+                )
+                .border(
+                    width = 2.dp,
+                    color = Color.Black,
+                    shape = RoundedCornerShape(30.dp),
                 )
                 .pointerInput(Unit) {
                     detectTapGestures(

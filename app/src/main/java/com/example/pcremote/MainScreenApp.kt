@@ -50,8 +50,8 @@ fun MainScreenApp(
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(top = 50.dp, start = 20.dp, end = 20.dp)
-            .background(color = MaterialTheme.colorScheme.onPrimaryContainer,
+            .padding(top = 50.dp)
+            .background(color = MaterialTheme.colorScheme.primaryContainer,
                 RoundedCornerShape(35.dp))
 
     ) {
